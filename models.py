@@ -19,5 +19,15 @@ class PaymentLink(Base):
     contaazul_parcela_id = Column(Text)
     status = Column(Text, nullable=False, default="pending")
 
+class OAuthToken(Base):
+    __tablename__ = "oauth_tokens"
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    provider = Column(Text, nullable=False)  # "contaazul"
+    access_token = Column(Text, nullable=False)
+    refresh_token = Column(Text)
+    expires_at = Column(DateTime(timezone=True))
+    created_at = Column(DateTime(timezone=True), server_default=func.now())
+    updated_at = Column(DateTime(timezone=True), server_default=func.now(), onupdate=func.now())
+
 # Cria tabelas automaticamente no MVP
 Base.metadata.create_all(bind=engine)

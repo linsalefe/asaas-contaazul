@@ -4,7 +4,7 @@ from config.settings import settings
 
 class ContaAzulClient:
     def __init__(self, access_token: str | None = None):
-        self.base = settings.CONTA_AZUL_BASE_URL.rstrip('/')
+        self.base = settings.CONTA_AZUL_API_URL.rstrip('/')
         self.token = access_token or settings.CONTA_AZUL_ACCESS_TOKEN
         if not self.token:
             logger.warning("CONTA_AZUL_ACCESS_TOKEN não configurado. Configure no .env para testes.")

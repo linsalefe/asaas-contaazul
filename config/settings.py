@@ -14,9 +14,15 @@ class Settings(BaseSettings):
     # Segurança do webhook Asaas
     ASAAS_WEBHOOK_TOKEN: str = Field(default="changeme")
 
-    # Conta Azul (MVP: token manual)
-    CONTA_AZUL_BASE_URL: str = Field(default="https://api.contaazul.com")
+    # Conta Azul - URLs corretas
+    CONTA_AZUL_AUTH_URL: str = Field(default="https://auth.contaazul.com")
+    CONTA_AZUL_API_URL: str = Field(default="https://api-v2.contaazul.com")
     CONTA_AZUL_ACCESS_TOKEN: str = Field(default="")
     CONTA_AZUL_FIN_ACCOUNT_ID: str = Field(default="")
+    
+    # OAuth2 Conta Azul
+    CONTA_AZUL_CLIENT_ID: str = Field(default="")
+    CONTA_AZUL_CLIENT_SECRET: str = Field(default="")
+    CONTA_AZUL_REDIRECT_URI: str = Field(default="http://localhost:8000/oauth/callback")
 
 settings = Settings()
